@@ -338,35 +338,40 @@ export default function GameBitPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative bg-surface-page overflow-hidden">
-        {/* Subtle grid pattern */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, var(--brand-light) 1px, transparent 0)`,
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-content-primary text-balance">
-            Tu tienda gamer de confianza
-          </h1>
-          <p className="mt-4 text-lg text-content-secondary max-w-2xl mx-auto text-pretty">
-            Joysticks, componentes y accesorios con atención personalizada
-          </p>
-          <a
-            href="#productos"
-            className="inline-flex mt-8 bg-brand-primary text-white px-6 py-3 rounded-[5px] font-medium hover:bg-brand-hover transition-colors"
-          >
-            Ver productos
-          </a>
-        </div>
+      <section className="relative w-full">
+        <a href="#" aria-label="Ver productos">
+          <div
+            className="w-full"
+            style={{
+              backgroundImage: "url('/caro.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "700px",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 flex flex-col justify-center">
+            <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+              <div className="text-left">
+                <p className="text-white/70 text-sm sm:text-base lg:text-md font-medium tracking-widest uppercase mb-2">
+                  GameBit
+                </p>
+                <h2 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+                  TODO PARA TU PC
+                </h2>
+                <h2 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+                  Y TU SETUP GAMER
+                </h2>
+              </div>
+            </div>
+          </div>
+        </a>
       </section>
 
       {/* Products Section */}
       <section id="productos" className="py-12 sm:py-16 bg-surface-page">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-content-primary mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-content-primary mb-8 text-center sm:text-left">
             Nuestros productos
           </h2>
 
@@ -376,11 +381,10 @@ export default function GameBitPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full font-medium transition-colors cursor-pointer ${
-                  activeCategory === cat
-                    ? "bg-brand-primary text-white"
-                    : "bg-surface-card text-content-secondary hover:text-content-primary"
-                }`}
+                className={`px-4 py-2 rounded-full font-medium transition-colors cursor-pointer ${activeCategory === cat
+                  ? "bg-brand-primary text-white"
+                  : "bg-surface-card text-content-secondary hover:text-content-primary"
+                  }`}
               >
                 {categoryLabels[cat]}
               </button>
@@ -441,7 +445,7 @@ export default function GameBitPage() {
             <span className="text-xl font-bold">GameBit</span>
           </div>
           <p className="text-white/70 mb-6">Tu tienda gamer de confianza</p>
-          
+
           <div className="flex items-center justify-center gap-4 mb-8">
             <a
               href={getWhatsAppUrl()}
@@ -471,7 +475,7 @@ export default function GameBitPage() {
               <InstagramIcon />
             </a>
           </div>
-          
+
           <p className="text-white/50 text-sm">
             © 2025 GameBit. Todos los derechos reservados.
           </p>
@@ -519,11 +523,10 @@ export default function GameBitPage() {
                       <button
                         key={idx}
                         onClick={() => setSelectedImageIndex(idx)}
-                        className={`w-16 h-12 rounded overflow-hidden border-2 transition-colors ${
-                          idx === selectedImageIndex
-                            ? "border-brand-primary"
-                            : "border-surface-border hover:border-content-muted"
-                        }`}
+                        className={`w-16 h-12 rounded overflow-hidden border-2 transition-colors ${idx === selectedImageIndex
+                          ? "border-brand-primary"
+                          : "border-surface-border hover:border-content-muted"
+                          }`}
                       >
                         <img
                           src={img}
@@ -540,7 +543,7 @@ export default function GameBitPage() {
                   <h2 className="text-xl sm:text-2xl font-bold text-content-primary">
                     {selectedProduct.name}
                   </h2>
-                  
+
                   <div className="mt-3 flex items-center gap-3">
                     <span className="text-content-muted line-through">
                       {formatPrice(selectedProduct.originalPrice)}
