@@ -21,19 +21,19 @@ type Product = {
 const products: Product[] = [
   {
     id: 1,
-    name: "Joystick Pro Wireless Elite",
-    price: 45990,
-    originalPrice: 59990,
+    name: "Joystick Manba One V2",
+    price: 75000,
+    originalPrice: 80000,
     category: "joysticks",
     images: [
-      "https://picsum.photos/seed/joystick1a/800/600",
+      "https://www.hlplanet.com/storage/2024/11/ManbaOneV2Controller-2-1024x576.webp",
       "https://picsum.photos/seed/joystick1b/800/600",
       "https://picsum.photos/seed/joystick1c/800/600",
       "https://picsum.photos/seed/joystick1d/800/600",
     ],
     description: "Joystick inalámbrico de alta precisión con conexión Bluetooth 5.0 y batería de larga duración. Compatible con PC, PlayStation y Nintendo Switch. Incluye vibración HD y gatillos adaptativos.",
     available: true,
-    lowStock: false,
+    lowStock: true,
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ const products: Product[] = [
     ],
     description: "Control con iluminación RGB personalizable y 16 millones de colores. Cable trenzado de 2 metros, botones mecánicos y grip antideslizante para sesiones de juego intensas.",
     available: true,
-    lowStock: true,
+    lowStock: false,
   },
   {
     id: 3,
