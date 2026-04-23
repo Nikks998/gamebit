@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
+import { motion } from "motion/react"
 
 // Types
 type Product = {
@@ -337,26 +338,45 @@ export default function GameBitPage() {
           <div
             className="w-full"
             style={{
-              backgroundImage: "url('/caro.jpg')",
+              backgroundImage: "url('/hero.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              height: "700px",
+              height: "900px",
             }}
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-0 flex flex-col justify-center">
             <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-              <div className="text-left">
-                <p className="text-white/70 text-sm sm:text-base lg:text-md font-medium tracking-widest uppercase mb-2">
+              <motion.div className="text-left"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <motion.p
+                  className="text-white/70 text-md sm:text-base font-medium tracking-widest uppercase mb-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.07, ease: "easeOut" }}
+                >
                   GameBit
-                </p>
-                <h2 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+                </motion.p>
+                <motion.h2
+                  className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.18, ease: "easeOut" }}
+                >
                   TODO PARA TU PC
-                </h2>
-                <h2 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+                </motion.h2>
+                <motion.h2
+                  className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+                >
                   Y TU SETUP GAMER
-                </h2>
-              </div>
+                </motion.h2>
+              </motion.div>
             </div>
           </div>
         </a>
@@ -387,11 +407,15 @@ export default function GameBitPage() {
 
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <button
+            {filteredProducts.map((product, index) => (
+              <motion.button
                 key={product.id}
                 onClick={() => openProductDrawer(product)}
-                className="flex flex-col bg-surface-card rounded-lg overflow-hidden text-left transition-all duration-200 hover:scale-[1.02] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
+                className="flex flex-col bg-surface-card rounded-lg overflow-hidden text-left hover:scale-[1.02] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
               >
                 <div className="w-full h-48 overflow-hidden flex-shrink-0">
                   <img
@@ -423,7 +447,7 @@ export default function GameBitPage() {
                     )}
                   </div>
                 </div>
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
