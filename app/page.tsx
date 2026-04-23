@@ -251,6 +251,12 @@ export default function GameBitPage() {
     accesorios: "Accesorios",
   }
 
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const navLinkClass = "hover:text-[#f00] transition-colors font-semibold"
+
   return (
     <div className="min-h-screen bg-surface-page">
       {/* Navbar */}
@@ -258,22 +264,22 @@ export default function GameBitPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2">
+            <button onClick={() => scrollToSection("hero")} className="flex items-center gap-2">
               <LightningIcon />
               <span className="text-xl font-bold text-content-primary">GameBit</span>
-            </a>
+            </button>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#" className="text-content-secondary hover:text-content-primary transition-colors">
+              <button onClick={() => scrollToSection("hero")} className={navLinkClass}>
                 Inicio
-              </a>
-              <a href="#productos" className="text-content-secondary hover:text-content-primary transition-colors">
+              </button>
+              <button onClick={() => scrollToSection("productos")} className={navLinkClass}>
                 Productos
-              </a>
-              <a href="#contacto" className="text-content-secondary hover:text-content-primary transition-colors">
+              </button>
+              <button onClick={() => scrollToSection("contacto")} className={navLinkClass}>
                 Contacto
-              </a>
+              </button>
             </div>
 
             {/* Desktop WhatsApp Button */}
@@ -302,27 +308,15 @@ export default function GameBitPage() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-surface-border bg-surface-page">
             <div className="px-4 py-4 flex flex-col gap-4">
-              <a
-                href="#"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-content-secondary hover:text-content-primary transition-colors py-2"
-              >
+              <button onClick={() => { scrollToSection("hero"); setMobileMenuOpen(false) }} className={navLinkClass}>
                 Inicio
-              </a>
-              <a
-                href="#productos"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-content-secondary hover:text-content-primary transition-colors py-2"
-              >
+              </button>
+              <button onClick={() => { scrollToSection("productos"); setMobileMenuOpen(false) }} className={navLinkClass}>
                 Productos
-              </a>
-              <a
-                href="#contacto"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-content-secondary hover:text-content-primary transition-colors py-2"
-              >
+              </button>
+              <button onClick={() => { scrollToSection("contacto"); setMobileMenuOpen(false) }} className={navLinkClass}>
                 Contacto
-              </a>
+              </button>
               {/* <a
                 href={getWhatsAppUrl()}
                 target="_blank"
@@ -338,8 +332,8 @@ export default function GameBitPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative w-full">
-        <a href="#" aria-label="Ver productos">
+      <section className="relative w-full" id="hero">
+        <a aria-label="Ver productos">
           <div
             className="w-full"
             style={{
