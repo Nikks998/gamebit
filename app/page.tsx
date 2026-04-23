@@ -419,11 +419,11 @@ export default function GameBitPage() {
                         Sin stock
                       </span>
                     ) : product.lowStock ? (
-                      <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-status-low/10 text-status-low">
+                      <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-status-low/15 text-status-low">
                         Últimas unidades
                       </span>
                     ) : (
-                      <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-status-available/10 text-status-available">
+                      <span className="inline-block px-2 py-1 text-xs font-medium rounded bg-status-available/15 text-status-available">
                         Disponible
                       </span>
                     )}
@@ -500,7 +500,7 @@ export default function GameBitPage() {
       <Sheet open={isDrawerOpen} onOpenChange={(open) => !open && closeDrawer()}>
         <SheetContent
           side="right"
-          className="w-full lg:w-[42%] lg:max-w-none p-0 overflow-y-auto bg-surface-page border-l border-surface-border"
+          className="w-full lg:w-[42%] lg:max-w-none p-0 overflow-y-auto bg-surface-page border-l border-surface-border [&>button]:w-8 [&>button]:h-8 [&>button]:top-4 [&>button]:right-4 [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button]:bg-white [&>button]:rounded-full"
         >
           {selectedProduct && (
             <div className="flex flex-col h-full">
@@ -540,16 +540,16 @@ export default function GameBitPage() {
 
                 {/* Product Info */}
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-content-primary">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-content-primary">
                     {selectedProduct.name}
                   </h2>
 
                   <div className="mt-3 flex items-center gap-3">
+                    <span className="text-2xl font-bold">
+                      {formatPrice(selectedProduct.price)}
+                    </span>
                     <span className="text-content-muted line-through">
                       {formatPrice(selectedProduct.originalPrice)}
-                    </span>
-                    <span className="text-2xl font-bold text-brand-primary">
-                      {formatPrice(selectedProduct.price)}
                     </span>
                   </div>
 
