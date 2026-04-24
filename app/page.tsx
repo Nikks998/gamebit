@@ -336,11 +336,11 @@ export default function GameBitPage() {
       <section className="relative w-full" id="hero">
         <a aria-label="Ver productos">
           <div
-            className="w-full"
+            className="w-full bg-bottom-left md:bg-center"
             style={{
-              backgroundImage: "url('/hero.png')",
+              backgroundImage: "url('/heros.webp')",
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "",
               height: "900px",
             }}
           />
